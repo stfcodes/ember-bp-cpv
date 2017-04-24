@@ -1,27 +1,60 @@
 # ember-bp-cpv
 
-This README outlines the details of collaborating on this Ember addon.
+[![Build Status](https://travis-ci.org/shuriu/ember-bp-cpv.svg?branch=master)](https://travis-ci.org/shuriu/ember-bp-cpv)
+[![npm version](https://badge.fury.io/js/ember-bp-cpv.svg)](https://badge.fury.io/js/ember-bp-cpv)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-bp-cpv.svg)](https://emberobserver.com/addons/ember-bp-cpv)
 
-## Installation
+`ember-bp-cpv` is a small wrapper around [`ember-buffered-proxy`](https://github.com/yapplabs/ember-buffered-proxy) that reduces the boilerplate of creating a validated buffer.
 
-* `git clone <repository-url>` this repository
-* `cd ember-bp-cpv`
-* `npm install`
-* `bower install`
+## Why?
 
-## Running
+Because most of the time, you don't want to change the underlying model directly. Also because you don't want so much boilerplate.
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+  `ember install ember-bp-cpv`
 
-## Running Tests
+## Usage
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+The intended usage is with [`ember-cp-validations`](https://github.com/offirgolan/ember-cp-validations) (not included in this addon):
 
-## Building
+```js
+import Ember from 'ember';
+import createBuffer from 'ember-bp-cpv/create-buffer';
+import { validator, buildValidations } from 'ember-cp-validations';
 
-* `ember build`
+const Validations = buildValidations({
+  email: {
+    validators: [
+      validator('presence', true)
+    ]
+  }
+});
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+export default Ember.Controller.extend({
+  buffer: createBuffer('model', Validations)
+});
+```
+
+Now in you have access to a validated `buffer` that you can use wherever you please.
+
+You can also use the buffer without validations:
+
+```js
+import Ember from 'ember';
+import createBuffer from 'ember-bp-cpv/create-buffer';
+
+export default Ember.Controller.extend({
+  buffer: createBuffer('model')
+});
+```
+
+## Contributing
+
+**Any contribution**, be it an issue, a feature or a bugfix is greatly appreciated :heart:
+
+Also, if your feature or bugfix is tested, I will give you commit rights.
+
+## Credits / Inspiration
+
+* [`ember-validated-form-buffer`](https://github.com/simplabs/ember-validated-form-buffer)
+* [`ember-buffered-proxy`](https://github.com/yapplabs/ember-buffered-proxy)
+* [`ember-cp-validations`](https://github.com/offirgolan/ember-cp-validations)
