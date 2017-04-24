@@ -13,7 +13,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "https://github.com/shuriu/ember-do-forms",
+  "repository": "https://github.com/shuriu/ember-bp-cpv",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
