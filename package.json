@@ -1,6 +1,6 @@
 {
   "name": "ember-bp-cpv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create validatable buffered proxies with ease.",
   "keywords": [
     "ember-addon",
