@@ -8,7 +8,7 @@
     "ember-cp-validations"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "stefan@kuibul.ro",
   "directories": {
     "doc": "doc",
     "test": "tests"
