@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import { moduleFor, test } from 'ember-qunit';
 import { validator, buildValidations } from 'ember-cp-validations';
-import createBuffer from 'ember-bp-cpv/create-buffer';
+import createBuffer from 'ember-bp-cpv';
 import createObject from '../helpers/create-object';
 
 const {

@@ -18,7 +18,7 @@ The intended usage is with [`ember-cp-validations`](https://github.com/offirgola
 
 ```js
 import Ember from 'ember';
-import createBuffer from 'ember-bp-cpv/create-buffer';
+import createBuffer from 'ember-bp-cpv';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
@@ -40,7 +40,7 @@ You can also use the buffer without validations:
 
 ```js
 import Ember from 'ember';
-import createBuffer from 'ember-bp-cpv/create-buffer';
+import createBuffer from 'ember-bp-cpv';
 
 export default Ember.Controller.extend({
   buffer: createBuffer('model')
